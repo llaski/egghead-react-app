@@ -1,15 +1,26 @@
-var React = require('react');
+import React from 'react';
+import { RouteHandler } from 'react-router';
+import Search from './Search';
 
-var Main = React.createClass({
+class Main extends React.Component {
 
-	render: function() {
+	render() {
 		return (
 			<div>
-				Hello World
+				<div className="main-container">
+					<nav className="navbar navbar-default" role="navigation">
+						<div className="col-sm-7 col-sm-offset-2" style={{ marginTop: 15 }}>
+							<Search />
+						</div>
+					</nav>
+				</div>
+				<div className="container">
+					<RouteHandler {...this.props} />
+				</div>
 			</div>
 		);
 	}
 
-});
+};
 
-module.exports = Main;
+export default Main;
